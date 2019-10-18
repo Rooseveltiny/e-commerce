@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="section">
+        <div class="container">
+            <div class="title">Каталог</div>
+            <div class="catalog">
+                <div class="filter">
+                    <div class="filter_inner">
+
+                        <form action="www.google.com" method="POST">
+
+                        {% for group in groups_with_features %} 
+
+                        <div class="filter_item">
+                            <div class="filter_title">
+                                {{group.name}}
+                            </div>
+                            <div class="filter_input">
+                                                              
+                                {% for feature in group.features %}
+
+                                <input id="check1" type="checkbox" name="check" value="check1">
+                                <label for="check1">{{feature.name}}</label>
+
+                                {% endfor %}
+
+                            </div>
+                        </div>
+
+                        {% endfor %}
+
+                    </form>
+
+                    </div>
+
+                    <div class="filter_button_block">
+                        <input type="submit" class="filter_button" value="подобрать">
+                    </div>
+
+                </div>
+                <div class="goods">
+                    <div class="products">
+                    
+                        {% for product in products %}
+
+                        <div class="product_item">
+                            <div class="product_name">
+                                {{product.name}}
+                            </div>
+
+                            <div class="product_details">
+
+                                <div class="product_detail_inner">
+
+                                    {% for feature in product.features_link.all %}
+
+                                    <div class="detail_item">
+                                        <div class="detail_title">
+                                            {{feature.feature_group.name}}
+                                        </div>
+                                        <div class="detail_info">
+                                            {{feature.name}}
+                                        </div>
+                                    </div>
+
+                                    {% endfor %}
+
+                                </div>
+
+                                <div class="product_info">
+
+                                    <div class="product_info_item">
+                                        <div class="product_info_title">
+                                            На складе, {{product.unit_of_measurement}}
+                                        </div>
+                                        <div class="product_info_content">
+                                            {{product.balance | floatformat}}
+                                        </div>
+                                    </div>
+
+                                    <div class="product_info_item">
+                                        <div class="product_info_title">
+                                            Цена, р.
+                                        </div>
+                                        <div class="product_info_content">
+                                            {{product.price | floatformat}}
+                                        </div>
+                                    </div>
+
+                                    <div class="product_info_item">
+                                        <div class="product_button">оставить заявку</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {% endfor %}
+
+                    </div>
+                </div>
+                <!--goods-->
+            </div>
+            <!--catalog-->
+        </div>
+    </div>
+    <!--section-->
+
+{% endblock %}

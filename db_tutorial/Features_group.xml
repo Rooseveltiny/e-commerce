@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Features_group>
+	<item uuid="4e681a04-ee32-11e9-b610-d0c637dd9469" name="Производитель"/>
+	<item uuid="4e681a10-ee32-11e9-b610-d0c637dd9469" name="Номер"/>
+	<item uuid="4e681a11-ee32-11e9-b610-d0c637dd9469" name="Цвет"/>
+	<item uuid="4e681a16-ee32-11e9-b610-d0c637dd9469" name="Покрытие"/>
+	<item uuid="4e681a1c-ee32-11e9-b610-d0c637dd9469" name="Категория качества"/>
+	<item uuid="1dc96996-ee5d-11e9-b610-d0c637dd9469" name="Толщина, мм"/>
+	<item uuid="1dc9699b-ee5d-11e9-b610-d0c637dd9469" name="Ширина, мм"/>
+</Features_group>

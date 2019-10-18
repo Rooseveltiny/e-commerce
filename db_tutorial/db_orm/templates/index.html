@@ -1,0 +1,81 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="section section--first_section">
+        <div class="container">
+            <div class="main_banner">
+                <div class="inner_banner">
+                    <img src="https://via.placeholder.com/910x400" alt="">
+                    <a href="{% url 'catalog' %}"><div class="banner_button"><button class="btn1">Каталог</button></a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="container">
+            <div class="title">Сервис</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="container">
+            <div class="service">
+
+                <div class="service_item">
+                    <div class="service_icon"><img src="assets/icons/warehouse.svg" alt=""></div>
+                    <div class="service_text">Реальные остатки</div>
+                </div>
+                <div class="service_item">
+                    <div class="service_icon"><img src="assets/icons/price.svg" alt=""></div>
+                    <div class="service_text">Актуальные цены</div>
+                </div>
+                <div class="service_item">
+                    <div class="service_icon"><img src="assets/icons/info.svg" alt=""></div>
+                    <div class="service_text">Подробная информация о продукции</div>
+                </div>
+                <div class="service_item">
+                    <div class="service_icon"><img src="assets/icons/steel.svg" alt=""></div>
+                    <div class="service_text">Более 1000 тонн стали</div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="section">
+        <div class="container">
+            <div class="contacts">
+                <div class="contacts_title">
+                    8 (8202) 265-265
+                </div>
+                <div class="contacts_text">
+                    Наш склад расположен в г. Череповец по адресу: ул. Краснодонцев д. 5
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+            <div class="container">
+                <div class="description">
+                    <div class="description_title">
+                        
+                    </div>
+                    <div class="description_text">
+                        <h3>Рулонная сталь с различными покрытиями</h3>
+                        <p>Продажа металлопроката осуществляется на базе компании "Всё для кровли" г. Череповец. Наша организация
+                            перерабатывает тонколистовой прокат в профнастил, доборные элементы,
+                            металлический сайдинг.
+                        </p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% endblock %}
