@@ -293,8 +293,11 @@ p{
     background: #4a76a8;
     color: white;
     font-weight: 600;
-    /* font-size: 12px; */
     cursor: pointer;
+}
+
+.product_button:hover{
+    opacity: .7;
 }
 
 /* .filter */
@@ -345,6 +348,10 @@ label:before {
 
 }
 
+.filter_input{
+    display: grid;
+    line-height: 2;
+}
 
 .filter_input label:before {
 	border-radius: 3px;

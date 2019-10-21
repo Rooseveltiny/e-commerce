@@ -9,20 +9,22 @@
                 <div class="filter">
                     <div class="filter_inner">
 
-                        <form action="www.google.com" method="POST">
+                        <form action="{% url 'catalog' %}" method="POST">
+
+                            {% csrf_token %}
 
                         {% for group in groups_with_features %} 
-
                         <div class="filter_item">
                             <div class="filter_title">
                                 {{group.name}}
                             </div>
+
                             <div class="filter_input">
                                                               
                                 {% for feature in group.features %}
 
-                                <input id="check1" type="checkbox" name="check" value="check1">
-                                <label for="check1">{{feature.name}}</label>
+                                <input id="{{feature.link}}" type="checkbox" name="filter_items" value="{{feature.link}}">
+                                <label for="{{feature.link}}">{{feature.name}}</label>
 
                                 {% endfor %}
 
@@ -31,13 +33,15 @@
 
                         {% endfor %}
 
+                        <div class="filter_button_block">
+                            <input type="submit" class="filter_button" value="подобрать">
+                        </div>
+
                     </form>
 
                     </div>
 
-                    <div class="filter_button_block">
-                        <input type="submit" class="filter_button" value="подобрать">
-                    </div>
+                    
 
                 </div>
                 <div class="goods">

@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .push_xml import push_all
 from .models import Product
+from django.core.paginator import Paginator
 
 # Create your views here
 
@@ -23,8 +24,9 @@ def catalog(request):
 
     products_list = Product.objects.all()
 
+    filter_params = request.POST.getlist('filter_items')
 
-    ### block that forms group of features_groups with features just to make a filter
+    # block that forms group of features_groups with features just to make a filter
     all_features = set()
     for product in products_list:
         for feature in product.features_link.all():
@@ -38,8 +40,8 @@ def catalog(request):
     for group in feature_groups:
 
         features_of_group = []
-        for feature in all_features:
 
+        for feature in all_features:
             if feature.feature_group == group:
 
                 features_of_group.append(feature)
@@ -48,8 +50,10 @@ def catalog(request):
                          'features': features_of_group}
 
         groups_with_features.append(group_element)
-    ### end block
+    # end block
 
+    products_list = products_list.filter(features_link__in = filter_params)
+    products_list = list(dict.fromkeys(products_list))
 
     context = {'products': products_list,
                'groups_with_features': groups_with_features}
