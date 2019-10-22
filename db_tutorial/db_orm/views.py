@@ -70,7 +70,7 @@ def catalog(request):
             #     for item in filter_params:
             #         q_objects.add(Q(pk=item), Q.AND)
 
-            #     products_list = products_list.filter(q_objects)        
+            #     products_list = products_list.filter(q_objects)  edde      
 
             products_list = products_list.filter(features_link__in = filter_params)
             products_list = list(dict.fromkeys(products_list))
