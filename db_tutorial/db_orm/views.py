@@ -30,15 +30,12 @@ def catalog(request):
     # block that forms group of features_groups with features just to make a filter
     groups_with_features = get_groups_with_features(products_list)
 
-    filter_params = []
-    if request.method == 'POST':
+    filter_params = request.GET.getlist('filter_items')
+    filter_params = [UUID(x) for x in filter_params]
 
-        filter_params = request.POST.getlist('filter_items')
-        filter_params = [UUID(x) for x in filter_params]
+    if len(filter_params):
 
-        if len(filter_params):
-
-            products_list = filter_products(filter_params, products_list)
+        products_list = filter_products(filter_params, products_list)
 
     context = {'products': products_list,
                'groups_with_features': groups_with_features,
