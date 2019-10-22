@@ -30,16 +30,19 @@ def catalog(request):
     # gets data for filter
     groups_with_features = get_groups_with_features(products_list)
 
-    filter_params = []
-    if request.method == 'POST':
+    filter_params = request.GET.getlist('filter_items')
+    filter_params = [UUID(x) for x in filter_params]
 
-        filter_params = request.POST.getlist('filter_items')
-        filter_params = [UUID(x) for x in filter_params]
+    if len(filter_params):
 
+<<<<<<< HEAD
         if len(filter_params):
 
             # gets filtered catalog according to filter params
             products_list = filter_products(filter_params, products_list)
+=======
+        products_list = filter_products(filter_params, products_list)
+>>>>>>> dev1
 
     paginator = Paginator(products_list, 1)
     page_number = request.GET.get('page', 1)
