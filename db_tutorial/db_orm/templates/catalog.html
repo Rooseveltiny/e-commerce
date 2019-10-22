@@ -2,29 +2,41 @@
 
 {% block content %}
 
-    <div class="section">
-        <div class="container">
-            <div class="title">Каталог</div>
-            <div class="catalog">
-                <div class="filter">
-                    <div class="filter_inner">
+<div class="section">
+    <div class="container">
+        <div class="title">Каталог</div>
+        <div class="catalog">
+            <div class="filter">
+                <div class="filter_inner">
 
-                        <form action="{% url 'catalog' %}" method="POST">
+                    <form action="{% url 'catalog' %}" method="POST">
 
-                            {% csrf_token %}
+                        {% csrf_token %}
 
-                        {% for group in groups_with_features %} 
+                        {% for group in groups_with_features %}
+
                         <div class="filter_item">
                             <div class="filter_title">
                                 {{group.name}}
                             </div>
 
                             <div class="filter_input">
-                                                              
+
                                 {% for feature in group.features %}
 
-                                <input id="{{feature.link}}" type="checkbox" name="filter_items" value="{{feature.link}}">
+                                {% if feature.link in filter_params %}
+
+                                <input checked id="{{feature.link}}" type="checkbox" name="filter_items"
+                                    value="{{feature.link}}">
                                 <label for="{{feature.link}}">{{feature.name}}</label>
+
+                                {% else %}
+
+                                <input id="{{feature.link}}" type="checkbox" name="filter_items"
+                                    value="{{feature.link}}">
+                                <label for="{{feature.link}}">{{feature.name}}</label>
+
+                                {% endif %}
 
                                 {% endfor %}
 
@@ -39,76 +51,76 @@
 
                     </form>
 
-                    </div>
-
-                    
-
                 </div>
-                <div class="goods">
-                    <div class="products">
-                    
-                        {% for product in products %}
 
-                        <div class="product_item">
-                            <div class="product_name">
-                                {{product.name}}
-                            </div>
 
-                            <div class="product_details">
 
-                                <div class="product_detail_inner">
+            </div>
+            <div class="goods">
+                <div class="products">
 
-                                    {% for feature in product.features_link.all %}
+                    {% for product in products %}
 
-                                    <div class="detail_item">
-                                        <div class="detail_title">
-                                            {{feature.feature_group.name}}
-                                        </div>
-                                        <div class="detail_info">
-                                            {{feature.name}}
-                                        </div>
+                    <div class="product_item">
+                        <div class="product_name">
+                            {{product.name}}
+                        </div>
+
+                        <div class="product_details">
+
+                            <div class="product_detail_inner">
+
+                                {% for feature in product.features_link.all %}
+
+                                <div class="detail_item">
+                                    <div class="detail_title">
+                                        {{feature.feature_group.name}}
                                     </div>
-
-                                    {% endfor %}
-
+                                    <div class="detail_info">
+                                        {{feature.name}}
+                                    </div>
                                 </div>
 
-                                <div class="product_info">
+                                {% endfor %}
 
-                                    <div class="product_info_item">
-                                        <div class="product_info_title">
-                                            На складе, {{product.unit_of_measurement}}
-                                        </div>
-                                        <div class="product_info_content">
-                                            {{product.balance | floatformat}}
-                                        </div>
-                                    </div>
+                            </div>
 
-                                    <div class="product_info_item">
-                                        <div class="product_info_title">
-                                            Цена, р.
-                                        </div>
-                                        <div class="product_info_content">
-                                            {{product.price | floatformat}}
-                                        </div>
-                                    </div>
+                            <div class="product_info">
 
-                                    <div class="product_info_item">
-                                        <div class="product_button">оставить заявку</div>
+                                <div class="product_info_item">
+                                    <div class="product_info_title">
+                                        На складе, {{product.unit_of_measurement}}
                                     </div>
+                                    <div class="product_info_content">
+                                        {{product.balance | floatformat}}
+                                    </div>
+                                </div>
+
+                                <div class="product_info_item">
+                                    <div class="product_info_title">
+                                        Цена, р.
+                                    </div>
+                                    <div class="product_info_content">
+                                        {{product.price | floatformat}}
+                                    </div>
+                                </div>
+
+                                <div class="product_info_item">
+                                    <div class="product_button">оставить заявку</div>
                                 </div>
                             </div>
                         </div>
-
-                        {% endfor %}
-
                     </div>
+
+                    {% endfor %}
+
                 </div>
-                <!--goods-->
             </div>
-            <!--catalog-->
+            <!--goods-->
         </div>
+        <!--catalog-->
     </div>
-    <!--section-->
+</div>
+<!--section-->
 
 {% endblock %}
