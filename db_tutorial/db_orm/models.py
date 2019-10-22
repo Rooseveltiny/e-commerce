@@ -64,11 +64,11 @@ class FeatureGroup(models.Model):
 
 class Feature(models.Model):
 
-    num = models.AutoField(null=False, default=None, primary_key=True) 
     name = models.CharField(max_length=50)
-    link = models.UUIDField(default=uuid.uuid4, editable=False)
+    link = models.UUIDField(default=uuid.uuid4, primary_key=True, editable=False)
     feature_group = models.ForeignKey('FeatureGroup', on_delete = models.CASCADE, default = None)
-    
+    num = models.AutoField(primary_key=False)
+
 
 class Product(models.Model):
 
@@ -78,6 +78,8 @@ class Product(models.Model):
     unit_of_measurement = models.CharField(max_length=10, default=None)
     balance = models.DecimalField(max_digits=15, decimal_places=3, default=0)
     features_link = models.ManyToManyField(Feature)
+
+
 
 
     
