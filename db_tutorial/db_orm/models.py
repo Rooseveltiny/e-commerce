@@ -67,8 +67,6 @@ class Feature(models.Model):
     name = models.CharField(max_length=50)
     link = models.UUIDField(default=uuid.uuid4, primary_key=True, editable=False)
     feature_group = models.ForeignKey('FeatureGroup', on_delete = models.CASCADE, default = None)
-    num = models.AutoField(primary_key=False)
-
 
 class Product(models.Model):
 
