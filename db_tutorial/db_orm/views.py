@@ -52,7 +52,9 @@ def catalog(request):
         groups_with_features.append(group_element)
     # end block
 
+
     filter_params = []
+
     if request.method == 'POST':
 
         filter_params = request.POST.getlist('filter_items')
@@ -64,8 +66,9 @@ def catalog(request):
             
                 products_list = products_list.filter(features_link__exact = item)
                 
-        products_list = list(dict.fromkeys(products_list))
+        # products_list = list(dict.fromkeys(products_list))
     
+
     context = {'products': products_list,
                'groups_with_features': groups_with_features,
                'filter_params': filter_params,
