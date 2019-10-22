@@ -59,6 +59,13 @@
             <div class="goods">
                 <div class="products">
 
+
+                {% if not product %}
+
+                    <span>По вашему критерию поиска нет результатов, пожалуйста выберите другие параметры</span>
+
+                {% else %}
+
                     {% for product in products %}
 
                     <div class="product_item">
@@ -113,6 +120,8 @@
                     </div>
 
                     {% endfor %}
+
+                    {% endif %}
 
                 </div>
             </div>

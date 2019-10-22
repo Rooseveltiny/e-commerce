@@ -56,22 +56,20 @@ def catalog(request):
     if request.method == 'POST':
 
         filter_params = request.POST.getlist('filter_items')
+        filter_params = [UUID(x) for x in filter_params]
 
         if len(filter_params):
 
             for item in filter_params:
-
-                products_list = products_list.filter(features_link__in = item)
-
-            # products_list = products_list.filter(features_link__in = filter_params)
-            products_list = list(dict.fromkeys(products_list))
+            
+                products_list = products_list.filter(features_link__exact = item)
+                
+        products_list = list(dict.fromkeys(products_list))
     
     context = {'products': products_list,
                'groups_with_features': groups_with_features,
-               'filter_params': [UUID(x) for x in filter_params],
+               'filter_params': filter_params,
                }
 
                
-
-
     return render(request, 'catalog.html', context=context)
