@@ -64,7 +64,7 @@ def catalog(request):
                 products_list = products_list.filter(features_link__in = item)
 
             # products_list = products_list.filter(features_link__in = filter_params)
-            # products_list = list(dict.fromkeys(products_list))
+            products_list = list(dict.fromkeys(products_list))
     
     context = {'products': products_list,
                'groups_with_features': groups_with_features,
