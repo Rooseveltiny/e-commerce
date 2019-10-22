@@ -61,7 +61,8 @@
 
                     {% if not products %}
 
-                    <span><b>По Вашим критериям ничего не найдено, пожалуйста, укажите другие параметры поиска</b></span>
+                    <span><b>По Вашим критериям ничего не найдено, пожалуйста, укажите другие параметры
+                            поиска</b></span>
 
                     {% endif %}
 
@@ -121,6 +122,37 @@
                     {% endfor %}
 
                 </div>
+
+                <div class="pagination">  
+
+                    {% if previous_url %}
+                    <a href="{{ previous_url }}"><div class="page next_prev_page prev"></div></a>
+                    {% endif %}
+
+                    {% for n in products.paginator.page_range %}
+
+                    {% if products.number == n %}
+
+                    <a href="?page={{n}}"><div class="page page--active">
+                        {{ n }}
+                    </div></a>
+
+                    {% elif n > products.number|add:-3 and n < products.number|add:3 %}
+
+                    <a href="?page={{n}}">
+                    <div class="page">
+                            {{ n }}
+                    </div></a>
+
+                    {% endif %}
+                    {% endfor %}
+
+                    {% if next_url %}
+                    <a href="{{ next_url }}"><div class="page next_prev_page next"></div></a>
+                    {% endif %}
+
+                </div>
+
             </div>
             <!--goods-->
         </div>

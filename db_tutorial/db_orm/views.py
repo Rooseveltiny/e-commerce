@@ -27,7 +27,7 @@ def catalog(request):
 
     products_list = Product.objects.all()
 
-    # block that forms group of features_groups with features just to make a filter
+    # gets data for filter
     groups_with_features = get_groups_with_features(products_list)
 
     filter_params = []
@@ -38,11 +38,32 @@ def catalog(request):
 
         if len(filter_params):
 
+            # gets filtered catalog according to filter params
             products_list = filter_products(filter_params, products_list)
 
-    context = {'products': products_list,
+    paginator = Paginator(products_list, 1)
+    page_number = request.GET.get('page', 1)
+    page = paginator.get_page(page_number)
+
+    is_paginated = page.has_other_pages()
+
+    if page.has_previous():
+        previous_url = '?page={}'.format(page.previous_page_number())
+    else:
+        previous_url = ''
+
+    if page.has_next():
+        next_url = '?page={}'.format(page.next_page_number())
+    else:
+        next_url = ''
+
+
+    context = {'products': page,
                'groups_with_features': groups_with_features,
                'filter_params': filter_params,
+               'is_paginated': is_paginated,
+               'next_url': next_url,
+               'previous_url': previous_url,
                }
 
     return render(request, 'catalog.html', context=context)
