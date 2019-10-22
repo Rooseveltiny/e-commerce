@@ -58,26 +58,17 @@ def catalog(request):
     filter_params = []
     if request.method == 'POST':
 
-        
         filter_params = request.POST.getlist('filter_items')
+        filter_params = [UUID(x) for x in filter_params]
 
-        if len(filter_params):
-
-            # if len(filter_params) > 0:
-
-            #     q_objects = Q()
-
-            #     for item in filter_params:
-            #         q_objects.add(Q(pk=item), Q.AND)
-
-            #     products_list = products_list.filter(q_objects)  edde      
+        if len(filter_params):    
 
             products_list = products_list.filter(features_link__in = filter_params)
             products_list = list(dict.fromkeys(products_list))
     
     context = {'products': products_list,
                'groups_with_features': groups_with_features,
-               'filter_params': [UUID(x) for x in filter_params],
+               'filter_params': filter_params,
                }
 
                
