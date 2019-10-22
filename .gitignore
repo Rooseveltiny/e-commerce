@@ -1,1 +1,2 @@
-db_tutorial/db_orm/__pycache__/
+*.pyc
+
