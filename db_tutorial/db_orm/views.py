@@ -25,9 +25,10 @@ def main_page(request):
 
 def catalog(request):
 
+    catalog_link = request.get_full_path()
     products_list = Product.objects.all()
 
-    # gets data for filter
+    # gets data for filter from products
     groups_with_features = get_groups_with_features(products_list)
 
     filter_params = request.GET.getlist('filter_items')
@@ -35,16 +36,10 @@ def catalog(request):
 
     if len(filter_params):
 
-<<<<<<< HEAD
-        if len(filter_params):
-
-            # gets filtered catalog according to filter params
-            products_list = filter_products(filter_params, products_list)
-=======
+        # filter the products according to the given params from a form
         products_list = filter_products(filter_params, products_list)
->>>>>>> dev1
 
-    paginator = Paginator(products_list, 1)
+    paginator = Paginator(products_list, 8)
     page_number = request.GET.get('page', 1)
     page = paginator.get_page(page_number)
 

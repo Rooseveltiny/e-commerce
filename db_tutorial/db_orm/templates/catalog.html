@@ -123,6 +123,8 @@
 
                 </div>
 
+                {% if is_paginated %}
+
                 <div class="pagination">  
 
                     {% if previous_url %}
@@ -137,7 +139,7 @@
                         {{ n }}
                     </div></a>
 
-                    {% elif n > products.number|add:-3 and n < products.number|add:3 %}
+                    {% elif n > products.number|add:-5 and n < products.number|add:5 %}
 
                     <a href="?page={{n}}">
                     <div class="page">
@@ -152,6 +154,8 @@
                     {% endif %}
 
                 </div>
+
+                {% endif %}
 
             </div>
             <!--goods-->

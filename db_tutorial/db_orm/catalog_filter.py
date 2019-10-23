@@ -20,8 +20,9 @@ def get_groups_with_features(products_list):
 
                 features_of_group.append(feature)
 
-        group_element = {'name': group.name,
-                         'features': features_of_group,
+        group_element = {
+                        'name': group.name,
+                        'features': features_of_group,
                          }
 
         groups_with_features.append(group_element)
