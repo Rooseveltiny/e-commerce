@@ -22,7 +22,6 @@ def main_page(request):
 
 # query list of products and perform a structure of filter
 
-
 def catalog(request):
 
     catalog_link = request.get_full_path()
@@ -39,6 +38,8 @@ def catalog(request):
         # filter the products according to the given params from a form
         products_list = filter_products(filter_params, products_list)
 
+
+    # pagination block
     paginator = Paginator(products_list, 8)
     page_number = request.GET.get('page', 1)
     page = paginator.get_page(page_number)
@@ -56,7 +57,8 @@ def catalog(request):
         next_url = ''
 
 
-    context = {'products': page,
+    context = {
+               'products': page,
                'groups_with_features': groups_with_features,
                'filter_params': filter_params,
                'is_paginated': is_paginated,
