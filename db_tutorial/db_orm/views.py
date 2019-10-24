@@ -1,11 +1,11 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from .push_xml import push_all
-from .models import Product, Feature
-from django.core.paginator import Paginator
-from uuid import UUID
-from django.db.models import Q
 from .catalog_filter import get_groups_with_features, filter_products
+from django.core.paginator import Paginator
+from django.http import HttpResponse
+from .models import Product, Feature
+from django.shortcuts import render
+from .push_xml import push_all
+from django.db.models import Q
+from uuid import UUID
 
 # Create your views here
 
