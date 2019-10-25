@@ -42,7 +42,6 @@ def catalog(request):
     paginator = Paginator(products_list, 1)
     page_number = request.GET.get('page', 1)
     page = paginator.get_page(page_number)
-
     is_paginated = page.has_other_pages()
 
     if page.has_previous():
@@ -52,13 +51,7 @@ def catalog(request):
 
     if page.has_next():
         next_url = '?page={}'.format(page.next_page_number())
-
-        # make this block better
-        try:
-            next_page_number = page.next_page_number()[0]
-        except:
-            next_page_number = page.next_page_number()
-        ### 
+        next_page_number = page.next_page_number()
 
     else:
         next_url = ''

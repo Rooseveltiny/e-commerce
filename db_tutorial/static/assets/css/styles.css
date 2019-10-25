@@ -383,8 +383,15 @@ p{
     font-weight: 700;
 }
 
+.clean_filter_block{
+    padding-top: 10px;
+    text-align: center;
+}
 
-
+.clean_filter_btn{
+    text-decoration: underline;
+    color: #4a76a8;
+}
 
 label {
 	display: inline-block;
