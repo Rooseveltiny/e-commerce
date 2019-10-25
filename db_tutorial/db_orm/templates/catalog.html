@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load my_tags %}
+
 
 {% block content %}
 
@@ -150,7 +152,8 @@
                     {% endfor %}
 
                     {% if next_url %}
-                    <a href="{{ next_url }}"><div class="page next_prev_page next"></div></a>
+                    <!-- <a href="{% param_replace %}{{ next_url }}"><div class="page next_prev_page next"></div></a> -->
+                    <a href="?{% param_replace page=next_page_number %}"><div class="page next_prev_page next"></div></a>
                     {% endif %}
 
                 </div>
