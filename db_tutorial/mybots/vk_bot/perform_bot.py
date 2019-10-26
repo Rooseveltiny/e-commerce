@@ -1,15 +1,17 @@
-from schedule.pars_schedule import get_schedule
+from .schedule.pars_schedule import get_schedule
 import vk
-from flask import Flask, request, json
-from settings import *
+# from flask import Flask, request, json
+from .settings import *
 import json
-from WORDS import WORDS, DAYS
-from Schedule40.schedule import get_schedule as get_arina_schedule
+from .WORDS import WORDS, DAYS
+from .Schedule40.schedule import get_schedule as get_arina_schedule
+from django.views.decorators.csrf import csrf_exempt
 
 
-def take_care_about_call(req: 'request')->'performin bot action':
+@csrf_exempt #exempt index() function from built-in Django protection
+def take_care_about_call(request: 'request')->'performin bot action':
 
-    data = json.loads(request.data)
+    data = json.loads(request.body) 
     
     if 'type' not in data.keys():
         return 'not vk'
