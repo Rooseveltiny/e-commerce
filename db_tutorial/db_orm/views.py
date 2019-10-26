@@ -38,23 +38,22 @@ def catalog(request):
         # filter the products according to the given params from a form
         products_list = filter_products(filter_params, products_list)
  
+    quantity_of_products = len(products_list)
+
     # pagination block
-    paginator = Paginator(products_list, 1)
+    paginator = Paginator(products_list, 8)
     page_number = request.GET.get('page', 1)
     page = paginator.get_page(page_number)
     is_paginated = page.has_other_pages()
 
     if page.has_previous():
-        previous_url = '?page={}'.format(page.previous_page_number())
+        previous_page_number = page.previous_page_number()
     else:
-        previous_url = ''
+        previous_page_number = ''
 
     if page.has_next():
-        next_url = '?page={}'.format(page.next_page_number())
         next_page_number = page.next_page_number()
-
     else:
-        next_url = ''
         next_page_number = ''
 
 
@@ -63,12 +62,9 @@ def catalog(request):
                'groups_with_features': groups_with_features,
                'filter_params': filter_params,
                'is_paginated': is_paginated,
-               'next_url': next_url,
-               'previous_url': previous_url,
-
-               ### here should be remade
                'next_page_number': next_page_number,
-               ###
+               'previous_page_number': previous_page_number,
+               'quantity_of_products': quantity_of_products,
                }
 
     return render(request, 'catalog.html', context=context)

@@ -6,7 +6,7 @@
 
 <div class="section">
     <div class="container">
-        <div class="title">Каталог</div>
+        <div class="title">Каталог <span class="quantity_of_products">{{quantity_of_products}}</span></div>
         <div class="catalog">
             <div class="filter">
                 <div class="filter_inner">
@@ -132,21 +132,21 @@
 
                 <div class="pagination">  
 
-                    {% if previous_url %}
-                    <a href="{{ previous_url }}"><div class="page next_prev_page prev"></div></a>
+                    {% if previous_page_number %}
+                    <a href="?{% param_replace page=previous_page_number %}"><div class="page next_prev_page prev"></div></a>
                     {% endif %}
 
                     {% for n in products.paginator.page_range %}
 
                     {% if products.number == n %}
 
-                    <a href="?page={{n}}"><div class="page page--active">
+                    <a href="?{% param_replace page=n %}"><div class="page page--active">
                         {{ n }}
                     </div></a>
 
                     {% elif n > products.number|add:-5 and n < products.number|add:5 %}
 
-                    <a href="?page={{n}}">
+                    <a href="?{% param_replace page=n %}">
                     <div class="page">
                             {{ n }}
                     </div></a>
@@ -154,7 +154,7 @@
                     {% endif %}
                     {% endfor %}
 
-                    {% if next_url %}
+                    {% if next_page_number %}
                     <!-- <a href="{% param_replace %}{{ next_url }}"><div class="page next_prev_page next"></div></a> -->
                     <a href="?{% param_replace page=next_page_number %}"><div class="page next_prev_page next"></div></a>
                     {% endif %}

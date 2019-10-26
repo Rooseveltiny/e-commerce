@@ -68,6 +68,9 @@ class Feature(models.Model):
     link = models.UUIDField(default=uuid.uuid4, primary_key=True, editable=False)
     feature_group = models.ForeignKey('FeatureGroup', on_delete = models.CASCADE, default = None)
 
+    def __repr__(self):
+        return repr((self.name, self.link, self.feature_group))
+
 class Product(models.Model):
 
     link = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)

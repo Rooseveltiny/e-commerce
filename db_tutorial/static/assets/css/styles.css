@@ -232,6 +232,10 @@ p{
     padding-bottom: 20px;
 }
 
+.quantity_of_products{
+    color: #999;
+}
+
 .product_name{
     box-shadow: 0 0 5px 0 #c9c9c9;
     background: #fff;
@@ -426,7 +430,17 @@ label:before {
 .filter_input{
     display: grid;
     line-height: 2;
+    max-height: 150px;
+    overflow: auto;
 }
+
+::-webkit-scrollbar { width: 6px; height: 10px;}
+::-webkit-scrollbar-button {  background-color: #fff; }
+::-webkit-scrollbar-track {  background-color: #fff;}
+::-webkit-scrollbar-track-piece { background-color: #ffffff;}
+::-webkit-scrollbar-thumb { height: 50px; background-color: #999; border-radius: 3px;}
+::-webkit-scrollbar-corner { background-color: #999;}}
+::-webkit-resizer { background-color: #fff;}
 
 .filter_input label:before {
 	border-radius: 3px;

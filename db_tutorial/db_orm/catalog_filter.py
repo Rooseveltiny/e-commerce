@@ -22,7 +22,7 @@ def get_groups_with_features(products_list):
 
         group_element = {
                         'name': group.name,
-                        'features': features_of_group,
+                        'features': sorted(features_of_group, key=lambda features: features.name),
                          }
 
         groups_with_features.append(group_element)
