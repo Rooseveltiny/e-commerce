@@ -1,0 +1,2 @@
+PassengerEnabled On
+PassengerPython ./env/bin/python3
