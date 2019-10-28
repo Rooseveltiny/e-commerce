@@ -82,7 +82,7 @@
 
                             <div class="product_detail_inner">
 
-                                {% for feature in product.features_link.all %}
+                                {% for feature in product.features_link.all|dictsort:"name" %}
 
                                 <div class="detail_item">
                                     <div class="detail_title">
