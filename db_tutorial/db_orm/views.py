@@ -15,6 +15,9 @@ def load_data(request):
     push_all()
     return HttpResponse('ok')
 
+def contacts(request):
+
+    return render(request, 'contacts.html')
 
 def main_page(request):
 

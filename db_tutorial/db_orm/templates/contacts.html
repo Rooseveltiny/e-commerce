@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load my_tags %}
+
+
+{% block content %}
+
+<div class="section">
+    <div class="container">
+        <div class="title">Контакты</div>
+
+        <div class="contacts_block">
+            <div class="contacts_content">
+
+                Наш офис работает с 8:00 - 18:00 с понедельника по пятницу
+                <br>Телефон: 8 (8202) 265-265 или 8 (8202) 264-264</br>
+                Электронная почта: <span style="color: #4a76a8; text-decoration: underline;">35vdk@mail.ru</span> 
+            </div>
+        </div>
+
+        <div class="contacts_map">
+                <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A54f643f82a1802474b9a59cb9838eb33dc3f85bc08911f05eb40f7c962c3394c&amp;width=910&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>        </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

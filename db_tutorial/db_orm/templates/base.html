@@ -9,14 +9,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{% static 'assets/css/styles.css'%}" type="text/css">
     <title>Document</title>
-
+    <script src="https://kit.fontawesome.com/342438aef4.js" crossorigin="anonymous"></script>
 </head>
 
 <header class="header" id="header">
     <div class="container">
         <div class="inner_header">
-            <a href="{% url 'main' %}"><div class="header_logo" data-scroll="#intro">Всё для кровли <span class="trade">Трейд</span></div></a>
+            <a href="{% url 'main' %}">
+                <div class="header_logo" data-scroll="#intro">Всё для кровли <span class="trade">Трейд</span></div>
+            </a>
             <nav class="nav" id="nav">
+                <a href="{% url 'contacts' %}" class="nav_link" data-scroll="#contacts">Контакты</a>
                 <a href="#" class="nav_link" data-scroll="#services">г. Череповец</a>
                 <a href="#" class="nav_link" data-scroll="#blog">Оставить заявку</a>
                 <a href="#" class="nav_link" data-scroll="#work">тел. 8 (8202) 265-265</a>
@@ -29,8 +32,42 @@
 <body>
 
     {% block content %}
-    
+
     {% endblock %}
+
+    <div class="footer">
+        <div class="container">
+            <div class="inner_footer">
+                <div class="footer_col_one">
+                    <div class="footer_item footer_item--phone">8 (8202) 265-265</div>
+                    <div class="footer_item footer_item--phone">8 (8202) 264-264</div>
+                    <div class="footer_item footer_item--map"><a href="{% url 'contacts' %}">Открыть карту</a></div>
+                    <div class="footer_socials">
+                        <div class="social_item social_item--vk"><a href="https://vk.com/35vdk" target="_blank"><i
+                                    class="fab fa-vk"></i></a></div>
+                    </div>
+
+                </div>
+                <div class="footer_col_two">
+                    <div class="logo">Логотип</div>
+                </div>
+                <div class="footer_col_three">
+                    <div class="footer_item">
+                      <a href="{% url 'contacts' %}">Контакты</a>  
+                    </div>
+                    <div class="footer_item">
+                        Информация для покупателей
+                    </div>
+                    <div class="footer_item">
+                        Каталог
+                    </div>
+                    <div class="footer_item">
+                        О нас
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 
