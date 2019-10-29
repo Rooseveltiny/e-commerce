@@ -38,7 +38,7 @@ def catalog(request):
 
     if len(filter_params):
 
-        # filter the products according to the given params from a form
+        # filter products according to the given params from a form
         products_list = filter_products(filter_params, products_list)
  
     quantity_of_products = len(products_list)
