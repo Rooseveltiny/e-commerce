@@ -23,6 +23,10 @@ def main_page(request):
 
     return render(request, 'index.html')
 
+def information(request):
+
+    return render(request, 'information.html')
+
 # query list of products and perform a structure of filter
 
 def catalog(request):
@@ -71,3 +75,5 @@ def catalog(request):
                }
 
     return render(request, 'catalog.html', context=context)
+
+
