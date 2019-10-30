@@ -216,6 +216,7 @@ p{
 .inner_banner img{
     box-shadow: 0 0 5px 0 #c9c9c9;
     border-radius: 5px;
+    max-width: 100%;
 }
 
 .banner_button{
@@ -608,19 +609,95 @@ input[type=checkbox]:checked + label:before {
 /* desktop */
 @media (max-width: 1200px) {
 
+    /* intro */
+
+
 }
 
 /* tablet */
 @media (max-width: 990px) {
    
+    /* header */
+    .nav_link{
+    font-size: 12px;
+    padding-right: 15px;
+    }
+
+    .header_logo{
+        font-size: 12px;
+    }
+
+    /* .contacts */
+    .contacts_text{
+        font-size: 15px;
+    }
+
+    .contacts_title{
+        font-size: 17px;
+    }
+
 }
 
 /* tablet vertical */
 @media (max-width: 770px) {
 
+    /* header */
+
+    .nav{
+        display: none;
+    }
+
+    .header_logo{
+        font-size: 14px;
+    }
+
 }
 
 /* mobile phone */
 @media (max-width: 575px) {
+
+    
+    .section{
+        padding: 10px 0;
+    }
+
+    .banner_button{
+        top: 65%;
+    }
+
+    /* intro */
+    .section--first_section{
+        padding-top: 25px;
+    }
+    
+    .title{
+        font-size: 15px;
+    }
+
+    .btn1{
+        width: 100px;
+        height: 25px;
+    }
+
+    /* service */
+    .service{
+        display: block;
+        flex-wrap: wrap;
+    }
+
+    .service_item{
+        max-width: 100%;
+    }
+
+    .contacts_title{
+        padding-bottom: 10px;
+    }
+
+    /* .footer */
+    .inner_footer{
+        display: block;
+        flex-wrap: wrap;
+        text-align: center;
+    }
 
 }
