@@ -75,5 +75,3 @@ def catalog(request):
                }
 
     return render(request, 'catalog.html', context=context)
-
-
