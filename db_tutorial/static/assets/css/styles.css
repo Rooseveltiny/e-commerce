@@ -764,4 +764,9 @@ input[type=checkbox]:checked + label:before {
        padding: 3px;
     }
 
+    input[type=checkbox]:checked + label:before{
+        color: #4a76a8;
+        background: #fff;
+    }
+
 }
