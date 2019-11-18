@@ -15,7 +15,7 @@
 
                 <div class="information_advs">
                     <div class="information_advs_item">
-                        <div class="information_advs_img"><img src="https://via.placeholder.com/400x300" alt=""></div>
+                        <div class="information_advs_img"><img src="{% static 'assets/images/filter.jpg' %}" alt=""></div>
                         <div class="information_advs_content">
                             <div class="information_advs_title">Удобная фильтрация в каталоге</div>
                             <div class="information_advs_text">Каждая продукция имеет множество свойств и атрибутов. Для
@@ -25,7 +25,7 @@
                         </div>
                     </div>
                     <div class="information_advs_item information_advs_item--reverse">
-                        <div class="information_advs_img"><img src="https://via.placeholder.com/400x300" alt=""></div>
+                        <div class="information_advs_img"><img src="{% static 'assets/images/inf_catalog.jpg' %}" alt=""></div>
                         <div class="information_advs_content information_advs_content--reverse">
                             <div class="information_advs_title">Каталог содержит более 300 наименований</div>
                             <div class="information_advs_text">Мы постоянно наращиваем обороты реазлиации тонколистового металлопроката. Вы можете выбрать продукцию из множества видов покрытий, толщин и производителей. 
@@ -33,18 +33,42 @@
                         </div>
                     </div>
                     <div class="information_advs_item">
-                        <div class="information_advs_img"><img src="https://via.placeholder.com/400x300" alt=""></div>
+                        <div class="information_advs_img"><img src="{% static 'assets/images/inf_details.jpg' %}" alt=""></div>
                         <div class="information_advs_content">
                             <div class="information_advs_title">Подробная информация</div>
                             <div class="information_advs_text">Информация о продукции тщательно проверяется на достоверность. Вы можете ознакомиться со всеми свойствами стали перед покупкой. А также получить соответствующие сертификаты качества.
                             </div>
                         </div>
                     </div>
+                    <div class="information_advs_item information_advs_item--reverse">
+                        <div class="information_advs_img"><img src="{% static 'assets/images/call-center.jpg' %}" alt=""></div>
+                        <div class="information_advs_content information_advs_content--reverse">
+                            <div class="information_advs_title">Специалисты готовые помочь</div>
+                            <div class="information_advs_text">
+                                Позвоните нам для получения подробной информации о предлагаемой продукции. Наши сотрудники готовы помочь Вам с выбором требуемого металлопроката, а также с вопросом доставки до Вашего местонахождения.
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
+
+                <div class="info_content">
+                    <div class="info_block_title"><p>Наша организация предоставляет всё необходимое для комфортного сотрудничества</p></div>
+                    
+                    <ul class="info_list">
+                        <li>Складские помещения для должного хранения металлопроката</li>
+                        <li>Оборудование для быстрой погрузки и разгрузки продукции</li>
+                        <li>Местонахождение в металлургическом городе с развитой логистикой</li>
+                        <li>Всегда актуальная информация на нашем веб-сайте для Вашего удобства</li>
+                        <li>Имеется возможность продольно-поперечной резки тонколиствого проката по Вашим размерам</li>
+                    </ul>
+                </div>
+
             </div>
         </div>
     </div>
 </div>
+
+{% include 'our_projects.html' %}
 
 {% endblock %}

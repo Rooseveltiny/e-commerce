@@ -4,17 +4,20 @@
 
 {% block content %}
 
-    <div class="section section--first_section">
-        <div class="container">
-            <div class="main_banner">
-                <div class="inner_banner">
-                    <img src="{% static 'assets/images/main_banner2.jpg' %}" alt="">
-                    <a href="{% url 'catalog' %}"><div class="banner_button"><button class="btn1">Каталог</button></a></div>
-                </div>
+
+<div class="section section--first_section">
+    <div class="container">
+        <div class="main_banner">
+            <div class="inner_banner">
+                <img src="{% static 'assets/images/main_banner2.jpg' %}" alt="">
+                <a href="{% url 'catalog' %}"><div class="banner_button"><button class="btn1">Каталог</button></a></div>
             </div>
         </div>
     </div>
+</div>
 
+
+<!-- <div class="general_block_style --full_page"> -->
     <div class="section">
         <div class="container">
             <div class="title">Сервис</div>
@@ -50,15 +53,15 @@
 
     <div class="section">
         <div class="container">
-            <div class="contacts general_block_style">
+            <div class="contacts">
                 <div class="contacts_title">
                     8 (8202) 265-265
                 </div>
                 <div class="contacts_text">
                     Наш склад расположен в г. Череповец по адресу: ул. Краснодонцев д. 5
                 </div>
-            </div>
         </div>
+    </div>
     </div>
 
     <div class="section">
@@ -78,5 +81,9 @@
                 </div>
             </div>
         </div>
+
+        {% include 'our_projects.html' %}
+
+<!-- </div> -->
 
         {% endblock %}
